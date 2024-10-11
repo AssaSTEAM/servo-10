@@ -1,14 +1,14 @@
 input.onLogoEvent(TouchButtonEvent.Pressed, function () {
-    pins.servoWritePin(AnalogPin.P0, 89)
-})
-input.onButtonPressed(Button.A, function () {
-    basic.showArrow(ArrowNames.South)
-    pins.servoWritePin(AnalogPin.P0, 180)
-})
-input.onButtonPressed(Button.B, function () {
-    basic.showArrow(ArrowNames.North)
-    pins.servoWritePin(AnalogPin.P0, 0)
+    basic.showNumber(0)
+    pins.servoWritePin(AnalogPin.P0, 90)
 })
 basic.forever(function () {
-	
+    if (input.isGesture(Gesture.TiltRight)) {
+        basic.showArrow(ArrowNames.East)
+        pins.servoWritePin(AnalogPin.P0, 0)
+    }
+    if (input.isGesture(Gesture.TiltLeft)) {
+        basic.showArrow(ArrowNames.West)
+        pins.servoWritePin(AnalogPin.P0, 180)
+    }
 })
